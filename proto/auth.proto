@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
+    rpc Login (LoginRequest) return (LoginResponse) {}
+    rpc Verify (VerifyRequest) returns (VerifyResponse) {}
+}
+
+//Register
+
+message RegisterRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message RegisterResponse {
+    
+}
+
+//Login
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string token = 1;
+}
+
+//Verify
+
+message VerifyRequest {
+    string token = 1;
+}
+
+message VerifyResponse {
+    string userId = 1;
+}
